@@ -17,9 +17,7 @@ void Engine::run() {
             handleEvent(e);
         }
         update();
-        window.clear();
         draw();
-        window.display();
     }
     return;
 }
@@ -30,6 +28,7 @@ void Engine::init() {
 }
 
 void Engine::loadContent() {
+    levManager.load(&level, "Assets/Levels/level0.txt");
     return;
 }
 
@@ -45,5 +44,8 @@ void Engine::update() {
 }
 
 void Engine::draw() {
+    window.clear();
+
+    window.display();
     return;
 }

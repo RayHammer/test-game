@@ -2,6 +2,7 @@
 #define ENGINE_H
 
 #include <SFML/Graphics.hpp>
+#include "LevelManager.h"
 
 using namespace sf;
 
@@ -35,6 +36,8 @@ private:
     void draw();
 
     RenderWindow window;
+    LevelManager levManager;
+    Level level;
 };
 
 #endif // ENGINE_H
