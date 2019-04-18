@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "LevelManager.h"
+#include "TextureManager.h"
 
 using namespace sf;
 
@@ -37,5 +38,6 @@ private:
 
     RenderWindow window;
     LevelManager levManager;
-    Level level;
+    TextureManager texManager;
+    Level* level;
 };
