@@ -1,4 +1,4 @@
-#ifndef ENGINE_H
+#pragma once
 #define ENGINE_H
 
 #include <SFML/Graphics.hpp>
@@ -39,5 +39,3 @@ private:
     LevelManager levManager;
     Level level;
 };
-
-#endif // ENGINE_H
