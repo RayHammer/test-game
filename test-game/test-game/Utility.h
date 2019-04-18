@@ -1,5 +1,7 @@
 #pragma once
+
 #include <vector>
+#include <boost/config/warning_disable.hpp>
 #include <boost/spirit/include/qi.hpp>
 #include <boost/spirit/include/phoenix_core.hpp>
 #include <boost/spirit/include/phoenix_operator.hpp>
@@ -20,11 +22,12 @@ namespace util {
 
         bool r = phrase_parse(first, last,
             (
-                int_[push_back(phoenix::ref(v), _1)] % ','
+                int_ % ','
             ),
-            space);
+            space, v);
 
-        if (first != last) // fail if we did not get a full match
+		// fail if we did not get a full match
+        if (first != last)
             return false;
         return r;
     }

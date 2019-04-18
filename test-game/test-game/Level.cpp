@@ -2,6 +2,7 @@
 #include "Utility.h"
 
 using namespace std;
+using namespace util;
 
 Level::Level() {
     a2Level = nullptr;
@@ -28,7 +29,7 @@ bool Level::loadFromFile(const std::string & path) {
     for (Uint32 j = 0; j < levelSize.y; j++) {
         getline(inputFile, s);
         vector<int> parsed_res;
-        if (!util::parse_CSV(s.begin(), s.end(), parsed_res) || parsed_res.size() < levelSize.x) {
+        if (!parse_CSV(s.begin(), s.end(), parsed_res) || parsed_res.size() < levelSize.x) {
             return false;
         }
         for (Uint32 i = 0; i < levelSize.x; i++) {
