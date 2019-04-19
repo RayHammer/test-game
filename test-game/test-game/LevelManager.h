@@ -1,15 +1,18 @@
 #pragma once
 
+#include "ResourceManager.h"
 #include "Level.h"
-#include <string>
 
-class LevelManager
+using namespace std;
+
+class LevelManager : public ResourceManager<Level>
 {
 public:
     LevelManager();
     ~LevelManager();
-    bool load(Level * level, const std::string & path);
+    bool load(const string & path);
+    Level* getLevel();
 private:
-    Level * level;
+    Level level;
 };
 

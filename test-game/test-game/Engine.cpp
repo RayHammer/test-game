@@ -1,7 +1,7 @@
 #include "Engine.h"
 
 Engine::Engine() {
-
+    this->level = NULL;
 }
 
 Engine::~Engine() {
@@ -28,7 +28,8 @@ void Engine::init() {
 }
 
 void Engine::loadContent() {
-    levManager.load(&level, "Assets/Levels/level0.txt");
+    levManager.load("Assets/Levels/level0.txt");
+    texManager.load("Assets/Textures/tileset.png");
     return;
 }
 
@@ -45,7 +46,9 @@ void Engine::update() {
 
 void Engine::draw() {
     window.clear();
-
+    auto& texture = texManager.getTexture("Assets/Textures/tileset.png");
+    auto& bgVA = levManager.getLevel()->getVertexArray();
+    window.draw(bgVA, &texture);
     window.display();
     return;
 }

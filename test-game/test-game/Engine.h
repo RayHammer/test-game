@@ -1,8 +1,9 @@
-#ifndef ENGINE_H
+#pragma once
 #define ENGINE_H
 
 #include <SFML/Graphics.hpp>
 #include "LevelManager.h"
+#include "TextureManager.h"
 
 using namespace sf;
 
@@ -37,7 +38,6 @@ private:
 
     RenderWindow window;
     LevelManager levManager;
-    Level level;
+    TextureManager texManager;
+    Level* level;
 };
-
-#endif // ENGINE_H
