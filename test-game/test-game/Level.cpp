@@ -25,7 +25,6 @@ bool Level::loadFromFile(const std::string & path) {
     for (Uint32 i = 0; i < levelSize.x; i++) {
         a2Level[i] = new Tile[levelSize.y];
     }
-    printf_s("Loading a level...\n");
     for (Uint32 j = 0; j < levelSize.y; j++) {
         getline(inputFile, s);
         vector<int> parsed_res;
@@ -34,11 +33,39 @@ bool Level::loadFromFile(const std::string & path) {
         }
         for (Uint32 i = 0; i < levelSize.x; i++) {
             a2Level[i][j] = parsed_res[i];
-            printf_s("%d ", a2Level[i][j]);
         }
-        printf_s("\n");
     }
+    makeBGVertexArray();
     return true;
+}
+
+void Level::makeBGVertexArray() {
+    bgVA.setPrimitiveType(Quads);
+    bgVA.resize(levelSize.x * levelSize.y * VERTS_IN_QUAD);
+    for (int i = 0; i < levelSize.x; i++) {
+        for (int j = 0; j < levelSize.y; j++) {
+            int currVertex = (i * levelSize.y + j) * 4;
+            int tileType = a2Level[i][j];
+
+            bgVA[currVertex + 0].position =
+                Vector2f(i * TILE_SIZE, j * TILE_SIZE);
+            bgVA[currVertex + 1].position =
+                Vector2f((i + 1) * TILE_SIZE, j * TILE_SIZE);
+            bgVA[currVertex + 2].position =
+                Vector2f((i + 1) * TILE_SIZE, (j + 1) * TILE_SIZE);
+            bgVA[currVertex + 3].position =
+                Vector2f(i * TILE_SIZE, (j + 1) * TILE_SIZE);
+
+            bgVA[currVertex + 0].texCoords =
+                Vector2f(0, 0 + TILE_SIZE * tileType);
+            bgVA[currVertex + 1].texCoords =
+                Vector2f(TILE_SIZE, 0 + TILE_SIZE * tileType);
+            bgVA[currVertex + 2].texCoords =
+                Vector2f(TILE_SIZE, TILE_SIZE + TILE_SIZE * tileType);
+            bgVA[currVertex + 3].texCoords =
+                Vector2f(0, TILE_SIZE + TILE_SIZE * tileType);
+        }
+    }
 }
 
 void Level::deleteLevel() {

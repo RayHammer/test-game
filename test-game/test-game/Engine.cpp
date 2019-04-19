@@ -47,9 +47,8 @@ void Engine::update() {
 void Engine::draw() {
     window.clear();
     auto& texture = texManager.getTexture("Assets/Textures/tileset.png");
-    Sprite sprite(texture);
-    sprite.setPosition(Vector2f(0, 0));
-    window.draw(sprite);
+    auto& bgVA = levManager.getLevel()->getVertexArray();
+    window.draw(bgVA, &texture);
     window.display();
     return;
 }
