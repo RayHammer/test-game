@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class LevelManager : public ResourceManager<Level>
+class LevelManager : public ResourceManager<LevelManager, Level>
 {
 public:
     LevelManager();

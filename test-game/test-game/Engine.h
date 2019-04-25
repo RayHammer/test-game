@@ -1,7 +1,7 @@
 #pragma once
 #define ENGINE_H
 
-#include <SFML/Graphics.hpp>
+#include "Player.h"
 #include "LevelManager.h"
 #include "TextureManager.h"
 
@@ -37,7 +37,8 @@ private:
     void draw();
 
     RenderWindow window;
-    LevelManager levManager;
-    TextureManager texManager;
-    Level* level;
+    LevelManager& levManager = LevelManager::getInstance();
+    TextureManager& texManager = TextureManager::getInstance();
+
+    Player player;
 };

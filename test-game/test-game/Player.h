@@ -1,15 +1,15 @@
 #pragma once
 #include "Entity.h"
-#include <SFML/Graphics.hpp>
+#include "TextureManager.h"
+
+using namespace sf;
 
 class Player : public Entity
 {
 public:
-    Player(Level *pLevel);
+    Player();
     ~Player();
-    void update(sf::Time dt);
-    void draw();
-private:
-
+    void update(Time dt);
+    virtual void draw(RenderTarget& target, RenderStates states) const;
 };
 
