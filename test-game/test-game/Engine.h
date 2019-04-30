@@ -1,11 +1,13 @@
 #pragma once
 #define ENGINE_H
 
-#include <SFML/Graphics.hpp>
+#include "Player.h"
 #include "LevelManager.h"
 #include "TextureManager.h"
+#include <vector>
 
 using namespace sf;
+using namespace std;
 
 class Engine {
 public:
@@ -37,7 +39,9 @@ private:
     void draw();
 
     RenderWindow window;
-    LevelManager levManager;
-    TextureManager texManager;
-    Level* level;
+    LevelManager& levManager = LevelManager::getInstance();
+    TextureManager& texManager = TextureManager::getInstance();
+    vector<Entity*> entities;
+
+    unsigned int framerate = 60;
 };

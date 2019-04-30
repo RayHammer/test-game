@@ -7,7 +7,7 @@
 using namespace std;
 using namespace sf;
 
-class TextureManager : public ResourceManager<Texture>
+class TextureManager : public ResourceManager<TextureManager, Texture>
 {
 public:
     TextureManager();

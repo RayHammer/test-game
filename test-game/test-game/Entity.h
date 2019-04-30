@@ -1,15 +1,17 @@
 #pragma once
-#include "Level.h"
-#include <SFML/System.hpp>
+#include <SFML/Graphics.hpp>
+#include <cstdio>
 
-class Entity
+using namespace sf;
+
+class Entity : public Drawable
 {
 public:
-    Entity();
-    virtual ~Entity();
-    void update(sf::Time dt) {}
-    void draw() {}
+    Entity() {}
+    virtual ~Entity() {}
+    virtual void update(Time dt) = 0;
+    virtual void draw(RenderTarget& target, RenderStates states) const {}
 protected:
-    Level *pLevel;
+    Vector2f pos;
+    Sprite sprite;
 };
-

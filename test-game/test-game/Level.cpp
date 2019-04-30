@@ -28,7 +28,8 @@ bool Level::loadFromFile(const std::string & path) {
     for (Uint32 j = 0; j < levelSize.y; j++) {
         getline(inputFile, s);
         vector<int> parsed_res;
-        if (!parse_CSV(s.begin(), s.end(), parsed_res) || parsed_res.size() < levelSize.x) {
+        //if (!parse_CSV(s.begin(), s.end(), parsed_res) || parsed_res.size() < levelSize.x) {
+        if (!parse_CSV_int(s, parsed_res) || parsed_res.size() < levelSize.x) {
             return false;
         }
         for (Uint32 i = 0; i < levelSize.x; i++) {
