@@ -4,8 +4,10 @@
 #include "Player.h"
 #include "LevelManager.h"
 #include "TextureManager.h"
+#include <vector>
 
 using namespace sf;
+using namespace std;
 
 class Engine {
 public:
@@ -39,6 +41,5 @@ private:
     RenderWindow window;
     LevelManager& levManager = LevelManager::getInstance();
     TextureManager& texManager = TextureManager::getInstance();
-
-    Player player;
+    vector<Entity*> entities;
 };

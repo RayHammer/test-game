@@ -17,7 +17,9 @@ void Engine::run() {
             handleEvent(e);
         }
         update();
+        window.clear();
         draw();
+        window.display();
     }
     return;
 }
@@ -31,6 +33,7 @@ void Engine::loadContent() {
     levManager.load("Assets/Levels/level0.txt");
     texManager.load("Assets/Textures/tileset.png");
     texManager.load("Assets/Textures/default.png");
+    entities.push_back(new Player());
     return;
 }
 
@@ -43,16 +46,18 @@ void Engine::handleEvent(const Event & e) {
 
 void Engine::update() {
     Time dt = sf::seconds(1.f / 60);
-    player.update(dt);
+    for (auto i = entities.begin(); i != entities.end(); i++) {
+        (**i).update(dt);
+    }
     return;
 }
 
 void Engine::draw() {
-    window.clear();
     auto& texture = texManager.getTexture("Assets/Textures/tileset.png");
     auto& bgVA = levManager.getLevel()->getVertexArray();
     window.draw(bgVA, &texture);
-    window.draw(player);
-    window.display();
+    for (auto i = entities.begin(); i != entities.end(); i++) {
+        window.draw(**i);
+    }
     return;
 }

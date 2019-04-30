@@ -15,7 +15,7 @@ public:
         return instance;
     }
 protected:
-    virtual bool load(const std::string& path) = 0;
+    virtual bool load(const std::string& path) { return false; }
 private:
 
 };
