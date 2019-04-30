@@ -26,6 +26,7 @@ void Engine::run() {
 
 void Engine::init() {
     window.create(VideoMode(1280, 720), "Game Window", Style::Titlebar | Style::Close);
+    window.setFramerateLimit(framerate);
     return;
 }
 
@@ -45,7 +46,7 @@ void Engine::handleEvent(const Event & e) {
 }
 
 void Engine::update() {
-    Time dt = sf::seconds(1.f / 60);
+    Time dt = sf::seconds(1.f / framerate);
     for (auto i = entities.begin(); i != entities.end(); i++) {
         (**i).update(dt);
     }

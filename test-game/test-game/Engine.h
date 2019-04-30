@@ -42,4 +42,6 @@ private:
     LevelManager& levManager = LevelManager::getInstance();
     TextureManager& texManager = TextureManager::getInstance();
     vector<Entity*> entities;
+
+    unsigned int framerate = 60;
 };
