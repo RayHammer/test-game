@@ -47,8 +47,11 @@ void Engine::handleEvent(const Event & e) {
 
 void Engine::update() {
     Time dt = sf::seconds(1.f / framerate);
-    for (auto i = entities.begin(); i != entities.end(); i++) {
-        (**i).update(dt);
+    for (auto it = entities.begin(); it != entities.end(); it++) {
+        auto& i = (**it);
+        if (!i.isDestroyed()) {
+            i.update(dt);
+        }
     }
     return;
 }
@@ -57,8 +60,11 @@ void Engine::draw() {
     auto& texture = texManager.getTexture("Assets/Textures/tileset.png");
     auto& bgVA = levManager.getLevel()->getVertexArray();
     window.draw(bgVA, &texture);
-    for (auto i = entities.begin(); i != entities.end(); i++) {
-        window.draw(**i);
+    for (auto it = entities.begin(); it != entities.end(); it++) {
+        auto& i = (**it);
+        if (!i.isDestroyed()) {
+            window.draw(i);
+        }
     }
     return;
 }
