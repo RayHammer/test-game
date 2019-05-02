@@ -14,13 +14,22 @@ Player::~Player() {
 
 void Player::update(sf::Time dt) {
     int horInput = 0;
+    int verInput = 0;
     if (Keyboard::isKeyPressed(key_left)) {
         horInput -= 1;
     }
     if (Keyboard::isKeyPressed(key_right)) {
         horInput += 1;
     }
-    pos.x += horInput * 240 * dt.asSeconds();
+    if (Keyboard::isKeyPressed(key_up)) {
+        verInput -= 1;
+    }
+    if (Keyboard::isKeyPressed(key_down)) {
+        verInput += 1;
+    }
+
+    pos.x += horInput * movSpeed * dt.asSeconds();
+    pos.y += verInput * movSpeed * dt.asSeconds();
 
     sprite.setPosition(pos);
 }
