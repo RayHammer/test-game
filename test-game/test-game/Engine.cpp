@@ -34,7 +34,7 @@ void Engine::loadContent() {
     levManager.load("Assets/Levels/level0.txt");
     texManager.load("Assets/Textures/tileset.png");
     texManager.load("Assets/Textures/default.png");
-    entities.push_back(new Player());
+    entManager.add(new Player());
     return;
 }
 
@@ -47,18 +47,7 @@ void Engine::handleEvent(const Event & e) {
 
 void Engine::update() {
     Time dt = sf::seconds(1.f / framerate);
-    for (auto it = entities.begin(); it != entities.end(); it++) {
-        if (*it == nullptr) {
-            break;
-        }
-        auto& i = (**it);
-        if (!i.isDestroyed()) {
-            i.update(dt);
-        } else {
-            delete* it;
-            *it = nullptr;
-        }
-    }
+    entManager.updateAll(dt);
     return;
 }
 
@@ -66,14 +55,6 @@ void Engine::draw() {
     auto& texture = texManager.getTexture("Assets/Textures/tileset.png");
     auto& bgVA = levManager.getLevel()->getVertexArray();
     window.draw(bgVA, &texture);
-    for (auto it = entities.begin(); it != entities.end(); it++) {
-        if (*it == nullptr) {
-            break;
-        }
-        auto& i = (**it);
-        if (!i.isDestroyed()) {
-            window.draw(i);
-        }
-    }
+    entManager.drawAll(window);
     return;
 }

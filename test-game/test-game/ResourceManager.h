@@ -7,10 +7,10 @@ template <typename Derived, typename T>
 class ResourceManager : public Singleton<Derived>
 {
 public:
-    
+    ResourceManager() {};
+    virtual ~ResourceManager() {};
 protected:
     virtual bool load(const std::string& path) { return false; }
 private:
-    ResourceManager() {};
-    virtual ~ResourceManager() {};
+
 };

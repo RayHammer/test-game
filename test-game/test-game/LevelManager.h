@@ -8,11 +8,11 @@ using namespace std;
 class LevelManager : public ResourceManager<LevelManager, Level>
 {
 public:
+    LevelManager();
+    ~LevelManager();
     bool load(const string & path);
     Level* getLevel();
 private:
-    LevelManager();
-    ~LevelManager();
     Level level;
 };
 

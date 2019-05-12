@@ -13,13 +13,12 @@ using namespace std;
 
 class Engine : public Singleton<Engine> {
 public:
+    Engine();
+    ~Engine();
     static void start() {
         getInstance().run();
     }
 private:
-    Engine();
-    ~Engine();
-
     void run();
 
     void init();
@@ -35,7 +34,7 @@ private:
     RenderWindow window;
     LevelManager& levManager = LevelManager::getInstance();
     TextureManager& texManager = TextureManager::getInstance();
-    // EntityManager& entManager = EntityManager::getInstance();
+    EntityManager& entManager = EntityManager::getInstance();
     vector<Entity*> entities;
 
     unsigned int framerate = 60;
