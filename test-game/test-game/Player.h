@@ -4,8 +4,6 @@
 
 using namespace sf;
 
-typedef Keyboard::Key Key;
-
 class Player : public Entity
 {
 public:
@@ -14,7 +12,11 @@ public:
     void update(Time dt);
     virtual void draw(RenderTarget& target, RenderStates states) const;
 private:
-    Key key_left = Key::A;
-    Key key_right = Key::D;
+    int movSpeed = 240;
+
+    Keyboard::Key key_up = Keyboard::W;
+    Keyboard::Key key_left = Keyboard::A;
+    Keyboard::Key key_down = Keyboard::S;
+    Keyboard::Key key_right = Keyboard::D;
 };
 
