@@ -15,9 +15,8 @@ EntityManager::~EntityManager() {
     }
 }
 
-bool EntityManager::add(Entity *const &entity) {
+void EntityManager::add(Entity *const &entity) {
     entities.push_back(entity);
-    return true;
 }
 
 void EntityManager::updateAll(const Time &dt) {
