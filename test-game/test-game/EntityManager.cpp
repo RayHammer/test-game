@@ -1,11 +1,13 @@
 #include "EntityManager.h"
 
 
-EntityManager::EntityManager() {
-
+EntityManager::EntityManager() : thrCleanup(&EntityManager::cleanup, this) {
+    isRunning = true;
 }
 
 EntityManager::~EntityManager() {
+    isRunning = false;
+    thrCleanup.wait();
     for (auto it = entities.begin(); it != entities.end(); it++) {
         if (*it != nullptr) {
             delete* it;
@@ -27,7 +29,9 @@ void EntityManager::updateAll(const Time &dt) {
         if (!i.isDestroyed()) {
             i.update(dt);
         } else {
-            delete* it;
+            mtxCleanup.lock();
+            entityCleanup.push(*it);
+            mtxCleanup.unlock();
             *it = nullptr;
         }
     }
@@ -41,6 +45,18 @@ void EntityManager::drawAll(RenderTarget &target, const RenderStates &states) {
         auto &i = (**it);
         if (!i.isDestroyed()) {
             target.draw(i);
+        }
+    }
+}
+
+void EntityManager::cleanup() {
+    while (isRunning) {
+        if (!entityCleanup.empty()) {
+            mtxCleanup.lock();
+            Entity *p = entityCleanup.front();
+            entityCleanup.pop();
+            mtxCleanup.unlock();
+            delete p;
         }
     }
 }

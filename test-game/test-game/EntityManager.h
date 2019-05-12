@@ -2,6 +2,7 @@
 #include "Singleton.h"
 #include "Entity.h"
 #include <vector>
+#include <queue>
 
 using namespace std;
 using namespace sf;
@@ -14,5 +15,10 @@ public:
     void updateAll(const Time &dt);
     void drawAll(RenderTarget &target, const RenderStates &states = RenderStates::Default);
 private:
+    void cleanup();
     vector<Entity*> entities;
+    queue<Entity*> entityCleanup;
+    Thread thrCleanup;
+    Mutex mtxCleanup;
+    bool isRunning;
 };
