@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "EntityManager.h"
 #include <cstdio>
 
 using namespace sf;
@@ -15,6 +16,9 @@ public:
         return destroyed;
     }
 protected:
+    void entityCreate(Entity *const &entity) {
+        EntityManager::getInstance().add(entity);
+    }
     bool destroyed = false;
     Vector2f pos;
     Sprite sprite;
