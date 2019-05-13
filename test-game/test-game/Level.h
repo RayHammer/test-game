@@ -1,9 +1,5 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <string>
-#include <fstream>
-
-using namespace sf;
+#include "Headers.h"
 
 typedef int Tile;
 

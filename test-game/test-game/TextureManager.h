@@ -1,11 +1,6 @@
 #pragma once
-
+#include "Headers.h"
 #include "ResourceManager.h"
-#include <SFML/Graphics.hpp>
-#include <map>
-
-using namespace std;
-using namespace sf;
 
 class TextureManager : public ResourceManager<TextureManager, Texture>
 {

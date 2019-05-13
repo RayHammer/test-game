@@ -1,8 +1,7 @@
 #pragma once
+#include "Headers.h"
 #include "Entity.h"
 #include "TextureManager.h"
-
-using namespace sf;
 
 class Player : public Entity
 {

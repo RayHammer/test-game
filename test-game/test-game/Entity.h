@@ -1,8 +1,5 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <cstdio>
-
-using namespace sf;
+#include "Headers.h"
 
 class Entity : public Drawable
 {

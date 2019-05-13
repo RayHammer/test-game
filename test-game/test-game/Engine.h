@@ -1,15 +1,12 @@
 #pragma once
 #define ENGINE_H
 
+#include "Headers.h"
 #include "Singleton.h"
 #include "Player.h"
 #include "LevelManager.h"
 #include "TextureManager.h"
 #include "EntityManager.h"
-#include <vector>
-
-using namespace sf;
-using namespace std;
 
 class Engine : public Singleton<Engine> {
 public:

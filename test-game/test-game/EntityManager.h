@@ -1,11 +1,7 @@
 #pragma once
+#include "Headers.h"
 #include "Singleton.h"
 #include "Entity.h"
-#include <vector>
-#include <queue>
-
-using namespace std;
-using namespace sf;
 
 class EntityManager : public Singleton<EntityManager> {
 public:

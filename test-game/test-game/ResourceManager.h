@@ -1,6 +1,5 @@
 #pragma once
-#include <string>
-
+#include "Headers.h"
 #include "Singleton.h"
 
 template <typename Derived, typename T>

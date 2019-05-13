@@ -1,9 +1,7 @@
 #pragma once
-
+#include "Headers.h"
 #include "ResourceManager.h"
 #include "Level.h"
-
-using namespace std;
 
 class LevelManager : public ResourceManager<LevelManager, Level>
 {
