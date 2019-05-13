@@ -1,7 +1,5 @@
 #include "Utility.h"
 
-using namespace std;
-
 bool util::parse_CSV_int(const string& s, vector<int>& v) {
     string t;
     v.clear();

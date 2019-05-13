@@ -1,6 +1,6 @@
 #pragma once
+#ifndef ENGINE_H
 #define ENGINE_H
-
 #include "Headers.h"
 #include "Singleton.h"
 #include "Player.h"
@@ -36,3 +36,4 @@ private:
 
     unsigned int framerate = 60;
 };
+#endif // ENGINE_H

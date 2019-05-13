@@ -10,6 +10,4 @@ public:
     virtual ~ResourceManager() {};
 protected:
     virtual bool load(const std::string& path) { return false; }
-private:
-
 };

@@ -18,4 +18,3 @@ private:
     Keyboard::Key key_down = Keyboard::S;
     Keyboard::Key key_right = Keyboard::D;
 };
-

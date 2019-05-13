@@ -1,6 +1,5 @@
 #include "EntityManager.h"
 
-
 EntityManager::EntityManager() : thrCleanup(&EntityManager::cleanup, this) {
     isRunning = true;
 }

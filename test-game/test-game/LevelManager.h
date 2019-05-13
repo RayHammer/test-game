@@ -13,4 +13,3 @@ public:
 private:
     Level level;
 };
-

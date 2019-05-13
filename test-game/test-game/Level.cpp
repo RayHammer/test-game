@@ -1,7 +1,6 @@
 #include "Level.h"
 #include "Utility.h"
 
-using namespace std;
 using namespace util;
 
 Level::Level() {

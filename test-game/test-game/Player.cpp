@@ -1,7 +1,5 @@
 #include "Player.h"
 
-using namespace sf;
-
 Player::Player() {
     sprite = Sprite(TextureManager::getInstance().getTexture("Assets/Textures/default.png"));
     sprite.setOrigin(Vector2f(16.f, 16.f));
