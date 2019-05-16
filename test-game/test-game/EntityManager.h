@@ -1,19 +1,20 @@
 #pragma once
 #include "Headers.h"
 #include "Singleton.h"
-#include "Entity.h"
+#include "IEntity.h"
 
 class EntityManager : public Singleton<EntityManager> {
 public:
     EntityManager();
     ~EntityManager();
-    void add(Entity *const &entity);
+
+    void createEntity(IEntity *const &e);
     void updateAll(const Time &dt);
     void drawAll(RenderTarget &target, const RenderStates &states = RenderStates::Default);
 private:
     void cleanup();
-    vector<Entity*> entities;
-    queue<Entity*> entityCleanup;
+    vector<IEntity*> entities;
+    queue<IEntity*> entityCleanup;
     Thread thrCleanup;
     Mutex mtxCleanup;
     bool isRunning;

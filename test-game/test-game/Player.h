@@ -3,12 +3,11 @@
 #include "Entity.h"
 #include "TextureManager.h"
 
-class Player : public Entity
-{
+class Player : public Entity {
 public:
     Player();
     ~Player();
-    void update(Time dt);
+    virtual void update(Time dt);
     virtual void draw(RenderTarget& target, RenderStates states) const;
 private:
     int movSpeed = 240;

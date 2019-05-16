@@ -34,7 +34,7 @@ void Engine::loadContent() {
     levManager.load("Assets/Levels/level0.txt");
     texManager.load("Assets/Textures/tileset.png");
     texManager.load("Assets/Textures/default.png");
-    entManager.add(new Player());
+    entManager.createEntity(new Player());
     return;
 }
 

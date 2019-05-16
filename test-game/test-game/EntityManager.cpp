@@ -14,8 +14,8 @@ EntityManager::~EntityManager() {
     }
 }
 
-void EntityManager::add(Entity *const &entity) {
-    entities.push_back(entity);
+void EntityManager::createEntity(IEntity *const &e) {
+    entities.push_back(e);
 }
 
 void EntityManager::updateAll(const Time &dt) {
@@ -51,7 +51,7 @@ void EntityManager::cleanup() {
     while (isRunning) {
         if (!entityCleanup.empty()) {
             mtxCleanup.lock();
-            Entity *p = entityCleanup.front();
+            IEntity *p = entityCleanup.front();
             entityCleanup.pop();
             mtxCleanup.unlock();
             delete p;
