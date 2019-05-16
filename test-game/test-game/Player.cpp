@@ -32,6 +32,6 @@ void Player::update(sf::Time dt) {
     sprite.setPosition(pos);
 }
 
-void Player::draw(RenderTarget& target, RenderStates states) const {
+void Player::draw(RenderTarget &target, RenderStates states) const {
     target.draw(sprite, states);
 }

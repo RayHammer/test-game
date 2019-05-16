@@ -9,7 +9,7 @@ EntityManager::~EntityManager() {
     thrCleanup.wait();
     for (auto it = entities.begin(); it != entities.end(); it++) {
         if (*it != nullptr) {
-            delete* it;
+            delete *it;
         }
     }
 }

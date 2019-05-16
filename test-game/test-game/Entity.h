@@ -9,7 +9,7 @@ public:
     Entity() {}
     virtual ~Entity() {}
     virtual void update(Time dt) = 0;
-    virtual void draw(RenderTarget& target, RenderStates states) const {}
+    virtual void draw(RenderTarget &target, RenderStates states) const {}
     bool isDestroyed() {
         return destroyed;
     }

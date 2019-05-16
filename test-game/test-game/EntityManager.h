@@ -13,8 +13,8 @@ public:
     void drawAll(RenderTarget &target, const RenderStates &states = RenderStates::Default);
 private:
     void cleanup();
-    vector<IEntity*> entities;
-    queue<IEntity*> entityCleanup;
+    vector<IEntity *> entities;
+    queue<IEntity *> entityCleanup;
     Thread thrCleanup;
     Mutex mtxCleanup;
     bool isRunning;

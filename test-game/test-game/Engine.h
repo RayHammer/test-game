@@ -22,17 +22,17 @@ private:
 
     void loadContent();
 
-    void handleEvent(const Event & event);
+    void handleEvent(const Event &event);
 
     void update();
 
     void draw();
 
     RenderWindow window;
-    LevelManager& levManager = LevelManager::getInstance();
-    TextureManager& texManager = TextureManager::getInstance();
-    EntityManager& entManager = EntityManager::getInstance();
-    vector<Entity*> entities;
+    LevelManager &levManager = LevelManager::getInstance();
+    TextureManager &texManager = TextureManager::getInstance();
+    EntityManager &entManager = EntityManager::getInstance();
+    vector<Entity *> entities;
 
     unsigned int framerate = 60;
 };

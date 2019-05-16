@@ -52,8 +52,8 @@ void Engine::update() {
 }
 
 void Engine::draw() {
-    auto& texture = texManager.getTexture("Assets/Textures/tileset.png");
-    auto& bgVA = levManager.getLevel()->getVertexArray();
+    auto &texture = texManager.getTexture("Assets/Textures/tileset.png");
+    auto &bgVA = levManager.getLevel()->getVertexArray();
     window.draw(bgVA, &texture);
     entManager.drawAll(window);
     return;

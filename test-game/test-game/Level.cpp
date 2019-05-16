@@ -11,7 +11,7 @@ Level::~Level() {
     deleteLevel();
 }
 
-bool Level::loadFromFile(const std::string & path) {
+bool Level::loadFromFile(const std::string &path) {
     deleteLevel();
     levelSize = Vector2u(0, 0);
     fstream inputFile(path.c_str());
@@ -20,7 +20,7 @@ bool Level::loadFromFile(const std::string & path) {
     inputFile >> levelSize.x >> levelSize.y;
     getline(inputFile, s);
     // Writing data to the array
-    a2Level = new Tile *[levelSize.x];
+    a2Level = new Tile * [levelSize.x];
     for (Uint32 i = 0; i < levelSize.x; i++) {
         a2Level[i] = new Tile[levelSize.y];
     }

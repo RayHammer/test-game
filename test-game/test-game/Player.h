@@ -8,7 +8,7 @@ public:
     Player();
     ~Player();
     virtual void update(Time dt);
-    virtual void draw(RenderTarget& target, RenderStates states) const;
+    virtual void draw(RenderTarget &target, RenderStates states) const;
 private:
     int movSpeed = 240;
 

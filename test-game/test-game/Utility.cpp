@@ -1,6 +1,6 @@
 #include "Utility.h"
 
-bool util::parse_CSV_int(const string& s, vector<int>& v) {
+bool util::parse_CSV_int(const string &s, vector<int> &v) {
     string t;
     v.clear();
     size_t begin = 0;

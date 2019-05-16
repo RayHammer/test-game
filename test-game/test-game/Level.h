@@ -3,13 +3,12 @@
 
 typedef int Tile;
 
-class Level
-{
+class Level {
 public:
     Level();
     ~Level();
-    bool loadFromFile(const std::string & path);
-    VertexArray& getVertexArray() {
+    bool loadFromFile(const std::string &path);
+    VertexArray &getVertexArray() {
         return bgVA;
     }
 private:
@@ -24,4 +23,3 @@ private:
     // Deletes the level array
     void deleteLevel();
 };
-
